@@ -341,9 +341,9 @@ class TileJSONTileset implements Tileset {
     const j = await this.getTileJson();
     const template = j.tiles[0];
     const tileURL = template
-      .replace("{z}", z)
-      .replace("{x}", x)
-      .replace("{y}", y);
+      .replace("{z}", String(z))
+      .replace("{x}", String(x))
+      .replace("{y}", String(y));
     const tileResp = await this.request(tileURL);
     return await tileResp.arrayBuffer();
   }
